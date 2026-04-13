@@ -309,12 +309,12 @@ export default function App() {
     setOutletAttempts((currentAttempts) => currentAttempts + 1);
 
     if (totalCorrectFields === totalFields) {
-      setOutletFeedback("All outlet values are correct.");
+      setOutletFeedback("All CPE values are correct.");
     } else if (totalCorrectFields === 0) {
-      setOutletFeedback("No correct outlet values yet. Keep working.");
+      setOutletFeedback("No correct CPE values yet. Keep working.");
     } else {
       setOutletFeedback(
-        `${totalCorrectFields} of ${totalFields} outlet values are correct.`
+        `${totalCorrectFields} of ${totalFields} CPE values are correct.`
       );
     }
   }
@@ -703,16 +703,16 @@ export default function App() {
             <h2>Outlet Legs</h2>
 
             {outlets.length === 0 ? (
-              <p>Select a splitter to generate outlet legs.</p>
+              <p>Select a splitter to generate cable lengths.</p>
             ) : (
               <>
                 {outlets.map((outlet) => (
                   <div key={outlet.id} className="outlet-card">
                     <h3>Outlet {outlet.id}</h3>
-                    <p><strong>Outlet Length:</strong> {outlet.length} ft</p>
+                    <p><strong>Cable Length:</strong> {outlet.length} ft</p>
 
                     <div className="field-group">
-                      <label htmlFor={`outlet-${outlet.id}-tx`}>TX at outlet</label>
+                      <label htmlFor={`outlet-${outlet.id}-tx`}>TX at CPE</label>
                       <div className="input-with-unit">
                         <input
                           id={`outlet-${outlet.id}-tx`}
@@ -742,7 +742,7 @@ export default function App() {
 
                     <div className="field-group">
                       <label htmlFor={`outlet-${outlet.id}-lowRx`}>
-                        Low RX at outlet ({problem.lowFreq} MHz)
+                        Low RX at CPE ({problem.lowFreq} MHz)
                       </label>
                       <div className="input-with-unit">
                         <input
@@ -776,7 +776,7 @@ export default function App() {
 
                     <div className="field-group">
                       <label htmlFor={`outlet-${outlet.id}-hiRx`}>
-                        High RX at outlet ({problem.highFreq} MHz)
+                        High RX at CPE ({problem.highFreq} MHz)
                       </label>
                       <div className="input-with-unit">
                         <input
@@ -812,10 +812,10 @@ export default function App() {
 
                 <div className="section-action-row">
                   <button onClick={handleCheckOutletAnswers}>
-                    Check Outlet Answers
+                    Check CPE Answers
                   </button>
                   <button onClick={handleShowOutletAnswers}>
-                    Show Outlet Answers
+                    Show CPE Answers
                   </button>
                 </div>
 
