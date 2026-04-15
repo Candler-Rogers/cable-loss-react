@@ -61,7 +61,7 @@ function buildOutletData(problem, splitter, postSplitterValues) {
   }
 
   const outletCount = Number(splitter);
-  const cableType = problem.cableType;
+  const cableType = "RG-6";
 
   return Array.from({ length: outletCount }, (_, index) => {
     const length = getRandomInt(10, 99);
