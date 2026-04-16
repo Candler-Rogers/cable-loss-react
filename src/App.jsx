@@ -836,6 +836,7 @@ export default function App() {
               outlets={outlets}
           />
         </div>
+      </div>
 
       <div className="button-row action-bar">
         <button className="new-problem-button" onClick={handleNewProblem}>New Problem</button>
