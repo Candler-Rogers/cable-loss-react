@@ -240,46 +240,130 @@ select {
   width: 100%;
   height: auto;
   display: block;
-  background: #fafafa;
-  border-radius: 10px;
+  background:
+    radial-gradient(circle at top left, #ffffff 0%, #f7f9fc 55%, #eef3f8 100%);
+  border-radius: 14px;
 }
 
 .diagram-line {
-  stroke: #333;
-  stroke-width: 3;
+  stroke: #405066;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.diagram-drop-line {
+  stroke: #2f6fed;
+}
+
+.diagram-branch-line {
+  stroke: #5a6b84;
+}
+
+.diagram-outlet-line {
+  stroke: #2a9d8f;
 }
 
 .diagram-pole {
-  fill: #8b5a2b;
+  fill: #8a5a32;
+}
+
+.diagram-tap {
+  fill: #2f6fed;
+  stroke: #ffffff;
+  stroke-width: 3;
 }
 
 .diagram-house {
-  fill: #e9eef5;
-  stroke: #7f8ea3;
+  fill: #ffffff;
+  stroke: #c7d3e0;
   stroke-width: 2;
+}
+
+.diagram-roof {
+  fill: #d96b5f;
+  stroke: #c65449;
+  stroke-width: 2;
+}
+
+.diagram-entry {
+  fill: #2f6fed;
+  stroke: #ffffff;
+  stroke-width: 3;
 }
 
 .diagram-splitter {
-  fill: #d8d8d8;
-  stroke: #666;
+  fill: #d9dde3;
+  stroke: #6c7480;
   stroke-width: 2;
 }
 
-.diagram-node {
-  fill: #4b6cb7;
+.diagram-splitter-text {
+  font-size: 14px;
+  font-weight: 700;
+  fill: #222;
 }
 
 .diagram-outlet {
   fill: #2a9d8f;
-}
-
-.diagram-label {
-  font-size: 14px;
-  fill: #222;
+  stroke: #ffffff;
+  stroke-width: 3;
 }
 
 .diagram-title {
-  font-size: 18px;
-  font-weight: bold;
-  fill: #222;
+  font-size: 20px;
+  font-weight: 700;
+  fill: #223;
+}
+
+.diagram-title-sm {
+  font-size: 15px;
+  font-weight: 700;
+  fill: #223;
+}
+
+.diagram-label {
+  font-size: 13px;
+  fill: #334155;
+}
+
+.diagram-callout-box {
+  fill: rgba(255, 255, 255, 0.92);
+  stroke: #d7e0ea;
+  stroke-width: 1.5;
+}
+
+.diagram-callout-text {
+  font-size: 13px;
+  font-weight: 600;
+  fill: #1f2937;
+}
+
+.diagram-label-chip {
+  fill: rgba(255, 255, 255, 0.96);
+  stroke: #d9e2ec;
+  stroke-width: 1.5;
+}
+
+.diagram-label-chip-title {
+  font-size: 13px;
+  font-weight: 700;
+  fill: #1f2937;
+}
+
+.diagram-label-chip-text {
+  font-size: 12px;
+  fill: #475569;
+}
+
+.diagram-empty-box {
+  fill: rgba(255, 255, 255, 0.95);
+  stroke: #d8e1ea;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+}
+
+.diagram-empty-text {
+  font-size: 13px;
+  fill: #64748b;
+  font-weight: 600;
 }
