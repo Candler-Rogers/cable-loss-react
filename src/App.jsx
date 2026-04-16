@@ -3,6 +3,7 @@ import { generateRandomDrop } from "./utils/generateProblem";
 import { getAttenuation, isWithinTolerance } from "./utils/calculations";
 import { lossTable, splitterLossTable } from "./utils/constants";
 import SignalLossChart from "./components/SignalLossChart";
+import NetworkDiagram from "./components/NetworkDiagram";
 
 function buildEmptyAnswers() {
   return {
@@ -827,8 +828,14 @@ export default function App() {
           </section>
         </div>
 
-        <SignalLossChart />
-      </div>
+        <div className="sidebar-content">
+          <SignalLossChart />
+          <NetworkDiagram
+              problem={problem}
+              splitter={splitter}
+              outlets={outlets}
+          />
+        </div>
 
       <div className="button-row action-bar">
         <button className="new-problem-button" onClick={handleNewProblem}>New Problem</button>
