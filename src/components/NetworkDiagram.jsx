@@ -1,4 +1,13 @@
-export default function NetworkDiagram({ problem, splitter, outlets }) {
+export default function NetworkDiagram({ problem, splitter, outlets = [] }) {
+  if (!problem) {
+    return (
+      <section className="card">
+        <h2>Network Diagram</h2>
+        <p>Diagram unavailable.</p>
+      </section>
+    );
+  }
+
   const splitterCount = Number(splitter) || 0;
 
   const svgWidth = 900;
@@ -43,7 +52,6 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
           viewBox={`0 0 ${svgWidth} ${svgHeight}`}
           className="network-diagram"
         >
-          {/* Pole */}
           <rect
             x={poleX - 12}
             y={poleY - 70}
@@ -57,7 +65,6 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
             Pole / Tap
           </text>
 
-          {/* Drop line */}
           <line
             x1={poleX + 28}
             y1={poleY}
@@ -66,7 +73,6 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
             className="diagram-line diagram-drop-line"
           />
 
-          {/* Drop label */}
           <text
             x={(poleX + entryX) / 2 - 70}
             y={entryY - 20}
@@ -75,7 +81,6 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
             Drop: {problem.length} ft ({problem.cableType})
           </text>
 
-          {/* House base */}
           <rect
             x={houseX}
             y={houseY + 30}
@@ -85,7 +90,6 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
             className="diagram-house"
           />
 
-          {/* Roof (safe single-line polygon) */}
           <polygon
             points={`${houseX - 10},${houseY + 38} ${houseX + houseWidth / 2},${houseY - 25} ${houseX + houseWidth + 10},${houseY + 38}`}
             className="diagram-roof"
@@ -95,13 +99,11 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
             House
           </text>
 
-          {/* Entry */}
           <circle cx={entryX} cy={entryY} r="9" className="diagram-entry" />
           <text x={houseX + 10} y={entryY - 16} className="diagram-label">
             Entry
           </text>
 
-          {/* Entry to splitter */}
           <line
             x1={entryX}
             y1={entryY}
@@ -110,7 +112,6 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
             className="diagram-line"
           />
 
-          {/* Splitter */}
           {splitterCount > 0 ? (
             <>
               <rect
@@ -139,7 +140,6 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
                 Splitter
               </text>
 
-              {/* Main trunk */}
               <line
                 x1={splitterX + 24}
                 y1={splitterY}
@@ -148,7 +148,6 @@ export default function NetworkDiagram({ problem, splitter, outlets }) {
                 className="diagram-line"
               />
 
-              {/* Outlets */}
               {outletPositions.map((position, index) => (
                 <g key={index}>
                   <line
