@@ -238,11 +238,10 @@ select {
 
 .network-diagram {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   display: block;
-  background:
-    radial-gradient(circle at top left, #ffffff 0%, #f7f9fc 55%, #eef3f8 100%);
-  border-radius: 14px;
 }
 
 .diagram-line {
@@ -280,9 +279,26 @@ select {
 }
 
 .diagram-roof {
-  fill: #d96b5f;
-  stroke: #c65449;
+  fill: #cc675c;
+  stroke: #b65349;
   stroke-width: 2;
+}
+
+.diagram-door {
+  fill: #8c633f;
+  stroke: #6d4b31;
+  stroke-width: 1.5;
+}
+
+.diagram-window {
+  fill: #dff1ff;
+  stroke: #8bb4d8;
+  stroke-width: 1.5;
+}
+
+.diagram-window-line {
+  stroke: #8bb4d8;
+  stroke-width: 1.2;
 }
 
 .diagram-entry {
@@ -366,4 +382,109 @@ select {
   font-size: 13px;
   fill: #64748b;
   font-weight: 600;
+}
+
+.diagram-pole {
+  fill: #9a6a34;
+  stroke: #7a5228;
+  stroke-width: 1.5;
+}
+
+.diagram-power-arm {
+  stroke: #6d4a27;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.diagram-power-line {
+  stroke: #4f4f4f;
+  stroke-width: 2;
+}
+
+.diagram-insulator {
+  fill: #d8dde3;
+  stroke: #6b7280;
+  stroke-width: 1;
+}
+
+.diagram-trunk-line {
+  stroke: #111;
+  stroke-width: 4;
+}
+
+.diagram-tap-box {
+  fill: #cfcfcf;
+  stroke: #8b8b8b;
+  stroke-width: 1.5;
+}
+
+.diagram-drop-line {
+  stroke: #2f6fed;
+  stroke-width: 4;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+}
+
+.chart-panel {
+  position: static;
+}
+
+@media (max-width: 900px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar-content {
+    position: static;
+  }
+
+  .chart-panel {
+    position: static;
+  }
+}
+
+.diagram-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.diagram-expand-button {
+  border: none;
+  background: #0171eb;
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+.diagram-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2000;
+}
+
+.diagram-overlay-panel {
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  border-radius: 0;
+  padding: 1rem 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.diagram-overlay-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }

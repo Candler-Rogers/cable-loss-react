@@ -833,12 +833,12 @@ export default function App() {
         </div>
 
         <div className="sidebar-content">
-          <SignalLossChart />
           <NetworkDiagram
-              problem={problem}
-              splitter={splitter}
-              outlets={outlets}
+            problem={problem}
+            splitter={splitter}
+            outlets={outlets}
           />
+          <SignalLossChart />
         </div>
       </div>
 
