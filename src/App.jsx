@@ -37,6 +37,10 @@ function evaluateField(value, correctValue) {
   };
 }
 
+function roundToTenth(value) {
+  return Math.round(value * 10) / 10;
+}
+
 function buildPostSplitterValues(problem, splitter) {
   if (!splitter) {
     return null;
@@ -46,9 +50,9 @@ function buildPostSplitterValues(problem, splitter) {
 
   return {
     splitterLoss,
-    postTX: Number((problem.correctTX + splitterLoss).toFixed(1)),
-    postLowRX: Number((problem.correctLowRX - splitterLoss).toFixed(1)),
-    postHiRX: Number((problem.correctHiRX - splitterLoss).toFixed(1)),
+    postTX: Number(roundToTenth(problem.correctTX + splitterLoss)),
+    postLowRX: Number(roundToTenth(problem.correctLowRX - splitterLoss)),
+    postHiRX: Number(roundToTenth(problem.correctHiRX - splitterLoss)),
   };
 }
 
@@ -81,9 +85,9 @@ function buildOutletData(problem, splitter, postSplitterValues) {
       id: index + 1,
       length,
       correct: {
-        tx: Number((postSplitterValues.postTX + txLoss).toFixed(1)),
-        lowRx: Number((postSplitterValues.postLowRX - lowRxLoss).toFixed(1)),
-        hiRx: Number((postSplitterValues.postHiRX - hiRxLoss).toFixed(1)),
+        tx: Number(roundToTenth(postSplitterValues.postTX + txLoss)),
+        lowRx: Number(roundToTenth(postSplitterValues.postLowRX - lowRxLoss)),
+        hiRx: Number(roundToTenth(postSplitterValues.postHiRX - hiRxLoss)),
       },
       answers: buildEmptyAnswers(),
     };
